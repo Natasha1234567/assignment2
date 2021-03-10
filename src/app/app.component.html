@@ -1,0 +1,39 @@
+<h2>Assignment 2</h2>
+
+<div>
+  <h3>Get Users Using Subscription and unsubscribe</h3>
+   <input
+    id="search"
+    placeholder="Enter user Name" 
+    type="text" (change) = "searchText($event)"/>
+  <ul *ngFor = "let user of users">
+    <li>{{user.name}}</li>
+  </ul>
+</div>
+
+<div>
+  <h3> Get Comments of first post using MergeMap</h3>
+  <p>Post title : {{postTitle}}</p>
+  <p *ngIf = "comment !== undefined">Comment on the post : {{comment.body}}</p>
+</div>
+
+<div>
+  <h3> Get Albums and Photos using ForkJoin</h3>
+  <p *ngIf = "albums !== undefined">Album Title: {{albums[0].title}}</p>
+  <p *ngIf = "photos !== undefined">Photo Title : {{photos[0].title}}</p>
+  <p *ngIf = "photos !== undefined">Photo Url : {{photos[0].url}}</p>
+</div>
+
+<div *ngIf = "todo !== {} && userName !== ''">
+  <h3> Get Todos using BehaviorSubject</h3>
+  <p>Searched Text: {{searchedText | async}}</p>
+  <div>
+  <p>Todo for user <span class = "value">{{this.userName}}</span> with title <span class = "value">{{todo.title}}</span> has 
+  <span *ngIf = "!todo.completed">not</span> been completed <span *ngIf = "!todo.completed">yet</span></p>
+  </div>
+</div>
+
+<div>
+   <h3>Subject Example</h3>
+   <input type = "date"   [(ngModel)] = "bdate" (ngModelChange)="getChangedDate($event)"/> 
+</div>
